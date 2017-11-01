@@ -1,4 +1,4 @@
-class SpaceAge constructor(val ageInSeconds: Long) {
+class SpaceAge constructor(ageInSeconds: Long) {
 
     private val earth: Double = ageInSeconds / 31557600.0
 
