@@ -1,6 +1,6 @@
-import java.text.DecimalFormat
-
 class SpaceAge constructor(val ageInSeconds: Long) {
+
+    private val earth: Double = ageInSeconds / 31557600.0
 
     fun onEarth(): Double {
         return age(1.0)
@@ -34,19 +34,7 @@ class SpaceAge constructor(val ageInSeconds: Long) {
         return age(164.79132)
     }
 
-    private fun earth(): Double {
-        return ageInSeconds / 31557600.0
-    }
-
     private fun age(divisor: Double): Double {
-        return trim(earth() / divisor)
-    }
-
-    private companion object {
-        private val FORMAT = DecimalFormat("0.00")
-
-        fun trim(number: Double): Double {
-            return FORMAT.format(number).toDouble()
-        }
+        return Math.round(100.0 * earth / divisor) / 100.0
     }
 }
